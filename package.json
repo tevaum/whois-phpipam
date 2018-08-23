@@ -1,0 +1,37 @@
+{
+  "name": "whois-phpipam",
+  "version": "1.0.0",
+  "description": "A simple whois service that retrieves address information from phpIPAM.",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "start": "node dist/src/server.js",
+    "prestart": "npm run prepare && cp config.js dist/",
+    "prepare": "node ./node_modules/babel-cli/bin/babel src/*.js -d dist",
+    "test": "DEBUG=ipam:* node dist/tests/simple",
+    "pretest": "npm run prepare && node ./node_modules/babel-cli/bin/babel tests/*.js -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tevaum/kea-phpipam"
+  },
+  "keywords": [
+    "Kea DHCP",
+    "phpIPAM"
+  ],
+  "author": "Estêvão Samuel Procópio Amaral <tevaum@gmail.com>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/tevaum/kea-phpipam/issues"
+  },
+  "homepage": "https://github.com/tevaum/kea-phpipam#readme",
+  "dependencies": {
+    "node-phpipam": "github:tevaum/node-phpipam#master",
+    "stampit": "^4.1.2",
+    "superagent": "^3.8.3",
+    "superagent-no-cache": "^0.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
